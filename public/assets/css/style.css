@@ -1,19 +1,43 @@
-li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+body {
+  background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-624107.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px; 
+  color: whitesmoke;
+  padding: 10px;
 }
 
 .label {
   font-weight: bold;
-}
-
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+  padding: 20px;
 }
 
 .form-group {
   margin-bottom: 5px;
+}
+
+.burgers{
+  margin: 15px;
+  text-align: center; 
+  background-color: black;
+  opacity: 0.60;
+  filter: alpha(opacity=30);
+  border-radius: 10px;
+}
+
+.create-form {
+  padding: 5px;
+  margin: 5px;
+  text-transform: capitalize;
+}
+
+h1,h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+#ca {
+background-color: antiquewhite;
+color: black; 
 }

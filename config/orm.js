@@ -13,7 +13,6 @@ function printQuestionMarks(num) {
 
     return arr.toString();
 }
-
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
     var arr = [];
@@ -23,7 +22,7 @@ function objToSql(ob) {
         var value = ob[key];
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
-            // if string with spaces, add quotations
+            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
@@ -32,17 +31,16 @@ function objToSql(ob) {
             arr.push(key + "=" + value);
         }
     }
-    // translate array of strings to a single comma-separated string
-    return arr.toString();
-}
+};
 
 var orm = {
-    selectAll: function (tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function (table, cb) {
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
+            console.log("selectAll query string: " + queryString);
 
             cb(result);
         });
@@ -57,7 +55,7 @@ var orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
 
-        console.log(queryString);
+        console.log("InsertOne query string: " + queryString);
 
         connection.query(queryString, vals, function (err, result) {
             if (err) {
@@ -67,15 +65,24 @@ var orm = {
             cb (result)
         });
     },
-    updateOne: function (tableInput, colToSearch, valOfCol) {
-        var queryString = "INSERT INTO ?? (?) VALUE ?";
+    // An example of objColVals would be {name: panther, sleepy: true}
+    update: function (table, condition, id, cb) {
+        var queryString = "UPDATE " + table;
 
-        console.log(queryString);
+        queryString += " SET ";
+        queryString += "devoured"+ condition;
+        queryString += " WHERE ";
+        queryString += id;
 
-        connection.query(queryString, [tableInput, colToSearch, valOfCol], function (err, result) {
-            if (err) throw err;
-            console.log(result);
+        console.log("Update query string: " + queryString);
+
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
         });
     },
-};
+};    
 module.exports = orm;

@@ -1,24 +1,27 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Burger app that displays burger you pick then you can eat it virtually",
+  "description": "Burger app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jamie705/Burger.git"
   },
-  "author": "Jamie Rodriguez",
+  "author": "JR",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jamie705/Burger/issues"
   },
   "homepage": "https://github.com/Jamie705/Burger#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "save": "^2.3.2"
   }
 }

@@ -1,25 +1,53 @@
-<h1>Burgers!</h1>
+<h1>Yummy Burgers!</h1>
 
-<h2>Yummy burgers devour it or Creat a new one.</h2>
+<div class="container">
+    <div class="row allBurgers">
+        
+        {{!-- Uneaten Burger --}}
+        <div class="col-5 burgers">
+            <div>
+                <h2>Eat the Burger</h2>
+                 {{#each burgers}}
+                    {{#unless devoured}}
+                        {{!-- <form method="PUT" action="/update" class="change-form" id="updateBurger"> --}}
+                            <label for="uneatenBurgers" class="burgers">{{id}}. {{this.burger_name}}</label>
+                            <button class="btn btn-secondary change-devoured" data-id="{{this.id}}">Nam Nam!</button>
+                            <br>
+                        {{!-- </form> --}}
+                    {{/unless}}    
+                {{/each}}
+            </div>
+        </div>
 
-<ul>
-    {{#each burgers}}
-        <li>
-        <p>{{this.burger_name}}</p> 
-        </li>    
-    {{/each}}
-</ul>
-
-<h2>Burgers that are devoured!</h2>
-
-
-{{!-- Adding a burger  --}}
-<h2>Add a Burger</h2>
-<form method="POST" action="/create" class="create-form" id="createBurger">
-    <div class="form-group">
-        <label for="ca">Enter Burger Name:</label>
-        <textarea type="text" id="ca" name="newBurger"></textarea>
+        {{!-- Eaten Burgers --}}
+        <div class="col-5 burgers">
+            <h2>Eaten Burgers!</h2>    
+            <div>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <label for="devouredBurgers" class="burgers">{{this.burger_name}}</label>
+                        <br>
+                        <br>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+            <br>
+            <hr>
+        <div class="row col-12 justify-content-center">
+            {{!-- Adding a burger --}}
+            <div class="col-md-8 burgers" id="AddBurger">
+                <h2>Create a New Burger</h2>
+                <form method="POST" action="/insertOne" class="create-form" id="createBurger">
+                    <div class="form-group">
+                        <label for="ca">Enter Burger Name:</label>
+                        <br>
+                        <textarea type="text" id="ca" name="newBurger"></textarea>
+                        <br>
+                        <button class="btn btn secondary" type="submit">Create My Burger!!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <button type="submit">Add burger</button>
-</form>
+</div>

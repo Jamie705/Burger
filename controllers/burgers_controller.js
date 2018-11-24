@@ -16,34 +16,34 @@ router.get("/", function(req, res) {
   });
 });
 
+// Will insert new burger to db
 router.post("/api/burgers", function(req, res) {
   burgers.insertOne(["burger_name", "devoured"], 
   [req.body.burger_name, req.body.devoured], function(result) {
+    
     // Send back the ID of the new burger
     console.log("This should add a burger: " + result.insertId)
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+// Will update to devoured/true
+router.put("/api/burgers/:id", function (req, res) {
+  var condition = " = " + req.body.devoured;
+  var id = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  console.log("This is condition", condition);
+  console.log("This id", id);
 
-  burgers.updateOne(
-    {
-      devoured: req.body.devoured
-    },
-    condition,
-    function(result) {
-      if (result.changedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      }
-      res.status(200).end();
-
+  burgers.update(condition, id, function (result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200);
     }
-  );
+    res.redirect("/");
+  });
 });
 
 // Export routes for server.js to use.
