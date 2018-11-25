@@ -21,23 +21,34 @@ body {
   margin: 15px;
   text-align: center; 
   background-color: black;
-  opacity: 0.60;
+  opacity: 0.65;
   filter: alpha(opacity=30);
   border-radius: 10px;
 }
 
 .create-form {
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
   text-transform: capitalize;
 }
 
 h1,h2 {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
+  margin: auto;
 }
 
-#ca {
-background-color: antiquewhite;
-color: black; 
+h1 {
+  color: rgb(80, 79, 79);
+  background-color: rgba(255, 255, 0, 0.658);
+  opacity: 0.60;
+  filter: alpha(opacity=30);
+  border-radius: 10px;
+  font-weight: 200;
+}
+
+.btn {
+  margin: 15px;
+  background-color: silver;
+  color: black;
 }

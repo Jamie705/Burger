@@ -42,7 +42,6 @@ router.put("/api/burgers/:id", function (req, res) {
     } else {
       res.status(200);
     }
-    res.redirect("/");
   });
 });
 

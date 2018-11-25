@@ -1,10 +1,11 @@
 var mysql = require("mysql");
+var dotenv = require("dotenv").config();
 
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "P@ssword123",
+    password: process.env.password,
     database: "burgers_db"
 });
 
