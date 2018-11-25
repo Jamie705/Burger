@@ -2,7 +2,7 @@
 Burger logger with MySQL, Node, Express, and Handlebars.
 
 Go to:
-#website
+https://immense-scrubland-98118.herokuapp.com/
 to check out my app!
 
 ### Overview
