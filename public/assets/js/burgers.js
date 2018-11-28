@@ -12,7 +12,7 @@ $(function() {
       data: eatenBurger
     }).then(
       function() {
-        console.log("Status changed devoured to", newDevoured);
+        console.log("Status changed devoured to", eatenBurger);
         // Reload the page to get the updated list
         location.reload(true);
       }
