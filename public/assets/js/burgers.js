@@ -1,4 +1,6 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
+
+// Change burger status to eaten
 $(function() {
   $(".change-devoured").on("click", function(event) {
     var burgerId = $(this).data("id");
@@ -19,10 +21,12 @@ $(function() {
     );
   });
 
+  //Creating a new burger
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
+      //created variable to save the input from form
     var newBurger = {
       burger_name: $("#ca").val().trim(),
     };
@@ -42,14 +46,14 @@ $(function() {
   });
 
   // $(".delete-burger").on("click", function(event) {
-  //   var id = $(this).data("id");
+  //   var id = $(this).data("burgerId");
 
   //   // Send the DELETE request.
-  //   $.ajax("/api/burgers/" + id, {
+  //   $.ajax("/api/burgers/" + burgerId, {
   //     type: "DELETE"
   //   }).then(
   //     function() {
-  //       console.log("deleted burger", id);
+  //       console.log("Deleted burger: ", burgerId);
   //       // Reload the page to get the updated list
   //       location.reload();
   //     }
