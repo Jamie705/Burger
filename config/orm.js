@@ -1,9 +1,6 @@
 var connection = require("./connection.js");
 
-// Let's say we want to pass 3 values into the mySQL query.
-// In order to write the query, we need 3 question marks.
-// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
-// ["?", "?", "?"].toString() => "?,?,?";
+//create question marks
 function printQuestionMarks(num) {
     var arr = [];
 
@@ -44,10 +41,10 @@ var orm = {
                 throw err;
             }
             console.log(result);
-            cb (result)
+            cb (result);
         });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
+    // An example of objColVals
     update: function (table, condition, id, cb) {
         var queryString = "UPDATE " + table;
 

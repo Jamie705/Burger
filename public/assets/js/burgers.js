@@ -45,6 +45,7 @@ $(function() {
     );
   });
 
+  // Adding delete option
   // $(".delete-burger").on("click", function(event) {
   //   var id = $(this).data("burgerId");
 

@@ -19,9 +19,12 @@ router.get("/", function(req, res) {
 // Will insert new burger to db
 router.post("/api/burgers", function(req, res) {
   burgers.insertOne(["burger_name", "devoured"], 
-  [req.body.burger_name, req.body.devoured], function(result) {
-    
-    // Send back the ID of the new burger
+  [
+    req.body.burger_name, 
+    req.body.devoured
+  ], 
+    function(result) {
+      // Send back the ID of the new burger
     console.log("This should add a burger: " + result.insertId)
     res.json({ id: result.insertId });
   });
